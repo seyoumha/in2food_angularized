@@ -1,0 +1,38 @@
+<div class='container'> 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink=''>In2Grubs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink=''>Featured Recipes <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='favorite'>Favorite Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='new'>Create a Recipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='mine'>My Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='shoppinglist'>Shopping List</a>
+        </li>
+        <li class='nav-item' *ngIf='user'>
+          <a class="nav-link"  (click)='logout()'>Log Out</a>
+        </li>
+        <li class='nav-item' *ngIf='!user'>
+          <a class="nav-link" routerLink='login'>Log In</a>
+        </li>
+
+      </ul>
+      <span *ngIf='user'>
+        Welcome {{user.nickname}}
+      </span>
+
+    </div>
+  </nav>
+</div>

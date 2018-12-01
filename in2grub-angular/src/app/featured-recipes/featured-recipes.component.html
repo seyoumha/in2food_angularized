@@ -1,0 +1,13 @@
+<div class="container">
+  <h3 class='title'>{{title}}</h3>
+  <div class='row'>
+    <div *ngFor='let recipe of recipes'>
+      <div class="col-md recipe-container">
+        <h3><a routerLink='detail/{{recipe.id}}'>{{recipe.title}}</a></h3>
+        <p class="badge badge-pill badge-secondary">{{recipe.category}}</p>
+        <p>{{recipe.description}}</p>
+      </div>
+    </div>
+  </div>
+  <app-search></app-search>
+</div>

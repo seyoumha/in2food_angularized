@@ -1,0 +1,25 @@
+<div class='container'>
+  <h2>Login</h2>
+  <form name="login" (ngSubmit)="f.form.valid && onSignInSubmit()" #f="ngForm" novalidate>
+    <div class="form-group">
+      <label for="email"> Email </label>
+      <input type="text" name="email" [(ngModel)]="user.email" #email=ngModel class="form-control" [ngClass]="{'is-invalid': submitted && f.email.errors}"/>
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" [(ngModel)]="user.password" name='password' #password=ngModel class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btn-primary">
+        <!-- <i class="fa fa-spinner fa-spin"></i> -->Login
+      </button>
+      <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class='row'>
+    <div class='col-md'>
+      <input type="text" placeholder="Search" #search name='search'>
+      <button (click)= 'recipeSearch(search.value)'><i class="fa fa-search" aria-hidden="true"></i></button>
+    </div>
+  </div>
+  <div *ngIf='searchedRecipes' class='search-results'>
+    <h3>Search Result</h3>
+    <div class='row'>
+      <div *ngFor='let recipe of searchedRecipes'>
+        <div class="col-md">
+          <h3><a routerLink='detail/{{recipe.id}}'>{{recipe.title}}</a></h3>
+          <p class="badge badge-pill badge-secondary">{{recipe.category}}</p>
+          <p>{{recipe.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
