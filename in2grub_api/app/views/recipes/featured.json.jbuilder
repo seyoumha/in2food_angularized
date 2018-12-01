@@ -1,0 +1,1 @@
+json.recipes @recipes, :title, :description, :category, :id
