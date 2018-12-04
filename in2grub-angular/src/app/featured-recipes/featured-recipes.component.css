@@ -6,3 +6,8 @@
 .title{
   margin-bottom: 40px;
 }
+
+.recipe{
+  margin:10px;
+  border: 1px solid #ccc;
+}

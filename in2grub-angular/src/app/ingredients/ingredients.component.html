@@ -1,0 +1,37 @@
+<div *ngIf='ingredients'>  
+  <div class='row' *ngFor='let i of ingredients'>
+    <div class='col'>{{i.name}}</div>
+    <div class='col'>{{i.unit}}</div>
+    <div class='col'>{{i.amount}}</div>
+  </div>
+</div>
+<div class='ingredient-form'>
+  <form name="addIngredient" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="form-group">
+      <label for="name"> Name </label>
+      <input type="text" class="form-control" name="name" [(ngModel)]="ingredient.name" #name="ngModel"  [ngClass]="{'is-invalid': f.submitted && name.invalid}" required/>
+      <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+          <div *ngIf="name.errors.required">Name is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="amount"> Amount </label>
+      <input type="text" class="form-control" name="amount" [(ngModel)]="ingredient.amount" #amount="ngModel"  [ngClass]="{'is-invalid': f.submitted && amount.invalid}" required/>
+      <div *ngIf="f.submitted && amount.invalid" class="invalid-feedback">
+          <div *ngIf="name.errors.required">Amount is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="unit"> Unit </label>
+      <input type="text" class="form-control" name="unit" [(ngModel)]="ingredient.unit" #unit="ngModel"  [ngClass]="{'is-invalid': f.submitted && unit.invalid}" required/>
+      <div *ngIf="f.submitted && unit.invalid" class="invalid-feedback">
+          <div *ngIf="unit.errors.required">Unit is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btn-primary">
+        <!-- <i class="fa fa-spinner fa-spin"></i> -->Add Ingredient
+      </button>
+    </div>
+  </form>
+</div>

@@ -24,11 +24,13 @@ const routes: Routes = [
   },
   {
     path: 'new',
-    component: NewRecipesComponent
+    component: NewRecipesComponent,
+    canActivate: [Angular2TokenService]
   },
   {
     path: 'mine',
-    component: MyRecipesComponent
+    component: MyRecipesComponent,
+    canActivate: [Angular2TokenService]
   },
   {
     path: 'shoppinglist',
@@ -40,7 +42,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   }
 
 ];

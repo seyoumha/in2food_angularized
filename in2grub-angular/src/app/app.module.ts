@@ -28,7 +28,8 @@ import { NewRecipesComponent } from './new-recipes/new-recipes.component';
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { SearchComponent } from './search/search.component';
-import { AuthService} from './_services/auth.service'
+import { AuthService} from './_services/auth.service';
+import { IngredientsComponent } from './ingredients/ingredients.component'
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { AuthService} from './_services/auth.service'
     SearchComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    IngredientsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+    
   mount_devise_token_auth_for 'User', at: 'auth'
   
   resources :recipes do
     get 'featured', on: :collection
     get 'search', on: :collection
+    resources :ingredients
 
   end
 

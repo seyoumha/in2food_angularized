@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'  
 import { Recipe } from '../_models/recipe'
+
 import { map } from "rxjs/operators";
 
 
@@ -19,9 +20,18 @@ export class RecipeService {
     return this.http.post('http://localhost:3000/recipes.json', recipe)
   }
   getRecipeInfo(id){
-    return this.http.get(`http://localhost:3000/recipes/${id}`)
+    return this.http.get(`http://localhost:3000/recipes/${id}.json`)
   }
   search(recipe){
-    return this.http.get(`http://localhost:3000/recipes/search?search=${recipe}`)
+    return this.http.get(`http://localhost:3000/recipes/search.json?search=${recipe}`)
+  }
+  getIngredients(recipe_id){
+    return this.http.get(`http://localhost:3000/recipes/${recipe_id}/ingredients.json`)
+  }
+  addIngredient(ingredient, r_id){
+    console.log(r_id)
+    ingredient['recipe_id'] = r_id
+    return this.http.post(`http://localhost:3000/recipes/${r_id}/ingredients.json`, ingredient)
+
   }
 }

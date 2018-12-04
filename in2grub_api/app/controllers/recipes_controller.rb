@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1
   def show
-    render json: @recipe
+    render json: {recipe: @recipe}
   end
 
   # POST /recipes

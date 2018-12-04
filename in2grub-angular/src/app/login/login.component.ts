@@ -12,10 +12,9 @@ import { AuthService} from '../_services/auth.service'
 })
 export class LoginComponent implements OnInit {
   user:User = new User
-  @Output() onFormResult = new EventEmitter<any>()
 
   constructor(private authToken: Angular2TokenService, private route: ActivatedRoute,
-        private router: Router, private authService: AuthService) {}
+    private router: Router, private authService: AuthService) {}
       
   onSignInSubmit(){
     this.authToken.init(environment.token_auth_config)

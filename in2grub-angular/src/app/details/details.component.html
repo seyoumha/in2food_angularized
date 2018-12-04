@@ -6,4 +6,12 @@
       <p>{{recipe.description}}</p>
     </div>
   </div>
+  <!-- Ingredients -->
+  <h2>Ingredients</h2>  
+  <div class='card'>
+    <div class='card-body'>
+      <app-ingredients *ngIf='recipe' [ingredients] = 'ingredients' [recipe_id] = 'recipe.id'></app-ingredients>
+
+    </div>
+  </div>
 </div>

@@ -3,6 +3,7 @@ import { RecipeService} from '../_services/recipe.service'
 import { Observable } from 'rxjs'  
 import {ActivatedRoute} from "@angular/router";
 import { Recipe } from '../_models/recipe'
+import { Ingredient } from '../_models/ingredient'
 
 
 
@@ -14,6 +15,7 @@ import { Recipe } from '../_models/recipe'
 export class DetailsComponent implements OnInit {
   id:any
   recipe: Recipe
+  ingredients: Ingredient[]
 
   constructor(private data: RecipeService, private route: ActivatedRoute) {
   }
@@ -22,8 +24,15 @@ export class DetailsComponent implements OnInit {
     this.route.params.subscribe( params => this.id = params.id );
 
     this.data.getRecipeInfo(this.id).subscribe(
-      (r: Recipe) => {
-        this.recipe = r})
+      (data) => {
+        this.recipe = data['recipe']})
+    
+    this.data.getIngredients(this.id).subscribe(
+      (data)=>{
+        this.ingredients = data['ingredients']
+        console.log(this.ingredients)
+      })
+
   }
 
 }
